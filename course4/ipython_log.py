@@ -445,3 +445,48 @@ def double_all_elements(lst, result_lst=None):
     return result
 
 double_all_elements([1, 2])
+s, k = (1, 2)
+s, k
+s
+def foo():
+    return 1, 2
+def bar():
+    return (1, 2)
+
+s, k = foo()
+s
+k
+s, k = bar()
+k
+first, *second = 'My string'
+second
+first, *mid, last = 'some letters'
+print(first, mid, last)
+tup = bar()
+s = tup[0]
+s
+k = tup[1]
+def accepts_args(*args):
+    print(args)
+    return sum(args)
+l = [1, 2, 3, 4]
+try:
+    accepts_args(l)
+except TypeError as e:
+    print('Error', e)
+
+accepts_args(*l)
+def accepts_args(*kwargs):
+    print(kwargs)
+    
+def accepts_args(**kwargs):
+    print(kwargs)
+    
+
+values = {'day': 'wed', 'month': 'may'}
+accepts_values(**values)
+accepts_args(**values)
+list(range(2, 10))
+list(range(10))
+list(range(0, 10, 3))
+list(range(0, 10, 2))
