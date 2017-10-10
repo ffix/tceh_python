@@ -42,12 +42,13 @@ def double_all_elements(lst, result_lst=None):
         result_lst = []
 
     if len(lst) == 0:
-        return []
+        return result_lst
     else:
         updated_element = lst[0] * 2
-        print(updated_element, len(lst), result_lst)
         result_lst.append(updated_element)
+        print(updated_element, len(lst), result_lst)
         result = double_all_elements(lst[1:], result_lst)
+        print(result)
     return result
 
 
