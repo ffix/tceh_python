@@ -230,3 +230,111 @@ def pretty_print(arg):
     print_stars()
 
 pretty_print(12)
+x = 5
+y = len
+print(callable(x), callable(y))
+globals
+globals()
+def foo():
+    x = 11
+    print(locals())
+    
+foo()
+def foo():
+    x = 11
+    def bar():
+        y = 12
+        print(locals())
+    return bar
+foo()()
+foo()
+def foo():
+    x = 11
+    def bar():
+        y = 12
+        print(locals())
+        def baz():
+            z = 20
+            pint("deep - deep rabbit hoooooole")
+        return baz    
+    return bar
+foo()
+foo()()
+foo()()()
+def foo():
+    x = 11
+    def bar():
+        y = 12
+        print(locals())
+        def baz():
+            z = 20
+            print("deep - deep rabbit hoooooole")
+        return baz    
+    return bar
+
+foo()()
+foo()()()
+def factorial(n):  # This function is recursive, it calls itself (but this is VERY-VERY-VERY-VERY STUPID EXAMPLE).
+    if n == 0:
+        return 1
+    return n * factorial(n - 1)
+
+print(factorial(4))
+def factorial(n):  # This function is recursive, it calls itself (but this is VERY-VERY-VERY-VERY STUPID EXAMPLE).
+    if n == 0:
+        return 1
+    return n * factorial(n - 1)
+
+print(factorial(2000))
+
+print(factorial(4000))
+print(factorial(3990))
+print(factorial(3900))
+print(factorial(2000))
+print(factorial(2500))
+print(factorial(300))
+print(factorial(3000))
+print(factorial(2900))
+print(factorial(2990))
+import sys
+sys.getrecursionlimit()
+sys.setrecursionlimit(6000)
+print(factorial(4000))
+print(factorial(6000))
+def double_all_elements(lst):
+    """ Double all elements in list
+    :param lst: incoming list
+    :return: result list
+    """
+
+    if len(lst) == 0:
+        return []
+    else:
+        updated_element = lst[0] * 2
+        print(updated_element, len(lst))
+        result = [updated_element, ] + double_all_elements(lst[1:])
+    return result
+double_all_elements([])
+double_all_elements([1])
+l = [1,2,3,4]
+l[1:]
+l = [1]
+l]
+l[1:]
+def double_all_elements(lst, result_lst=None):
+    """ Double all elements in list (tail recursion example)
+    :param lst: incoming list
+    :return: result list
+    """
+
+    if result_lst == None:
+        result_lst = []
+
+    if len(lst) == 0:
+        return []
+    else:
+        updated_element = lst[0] * 2
+        print(updated_element, len(lst), result_lst)
+        result_lst.append(updated_element)
+        result = double_all_elements(lst[1:], result_lst)
+    return result
