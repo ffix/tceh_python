@@ -338,3 +338,110 @@ def double_all_elements(lst, result_lst=None):
         result_lst.append(updated_element)
         result = double_all_elements(lst[1:], result_lst)
     return result
+l = [1,2,3,4]
+double_all_elements(l)
+double_all_elements([])
+double_all_elements([1])
+
+def double_all_elements(lst, result_lst=None):
+    """ Double all elements in list (tail recursion example)
+    :param lst: incoming list
+    :return: result list
+    """
+
+    if result_lst == None:
+        result_lst = []
+
+    if len(lst) == 0:
+        return []
+    else:
+        updated_element = lst[0] * 2
+        result_lst.append(updated_element)
+        print(updated_element, len(lst), result_lst)
+        result = double_all_elements(lst[1:], result_lst)
+        print(result)
+    return result
+double_all_elements([1])
+double_all_elements([1])
+def double_all_elements(lst, result_lst=None):
+    """ Double all elements in list (tail recursion example)
+    :param lst: incoming list
+    :return: result list
+    """
+
+    if result_lst == None:
+        result_lst = []
+
+    if len(lst) == 0:
+        return result_lst
+    else:
+        updated_element = lst[0] * 2
+        result_lst.append(updated_element)
+        print(updated_element, len(lst), result_lst)
+        result = double_all_elements(lst[1:], result_lst)
+        print(result)
+    return result
+double_all_elements([1])
+double_all_elements([])
+double_all_elements([1,2,3])
+double_all_elements([])
+double_all_elements([1, ])
+def double_all_elements(lst, result_lst=None):
+    """ Double all elements in list (tail recursion example)
+    :param lst: incoming list
+    :return: result list
+    """
+
+    if result_lst == None:
+        result_lst = []
+
+    if len(lst) == 0:
+        return result_lst
+    else:
+        updated_element = lst[0] * 2
+        result_lst.append(updated_element)
+        print(updated_element, len(lst), result_lst)
+        result = double_all_elements(lst[1:], result_lst)
+        print(result)
+    return result
+double_all_elements([1, 2])
+def double_all_elements(lst, result_lst=None):
+    """ Double all elements in list (tail recursion example)
+    :param lst: incoming list
+    :return: result list
+    """
+
+    if result_lst == None:
+        result_lst = []
+
+    if len(lst) == 0:
+        return result_lst
+    else:
+        updated_element = lst[0] * 2
+        result_lst.append(updated_element)
+        print(updated_element, lst, result_lst)
+        result = double_all_elements(lst[1:], result_lst)
+    return result
+
+double_all_elements([1, 2])
+double_all_elements([1, 2], [])
+def double_all_elements(lst, result_lst=None):
+    """ Double all elements in list (tail recursion example)
+    :param lst: incoming list
+    :return: result list
+    """
+
+    if result_lst == None:
+        result_lst = []
+
+    if len(lst) == 0:
+        print(lst, result_lst)
+        return result_lst
+    else:
+        updated_element = lst[0] * 2
+        result_lst.append(updated_element)
+        print(updated_element, lst, result_lst)
+        result = double_all_elements(lst[1:], result_lst)
+    return result
+
+double_all_elements([1, 2])
