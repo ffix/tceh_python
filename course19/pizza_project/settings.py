@@ -41,8 +41,6 @@ INSTALLED_APPS = [
     # debug:
     'debug_toolbar',
 
-    # rest:
-    'rest_framework',
 
 
     # my apps:
