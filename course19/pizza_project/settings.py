@@ -138,13 +138,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-# Celery
-
-from datetime import timedelta
-
-import djcelery
-
-djcelery.setup_loader()
 
 # Redis settings:
 
