@@ -176,10 +176,3 @@ BROKER_URL = REDIS_BACKEND_URL
 CELERYBEAT_SCHEDULER = "djcelery.schedulers.DatabaseScheduler"
 
 
-CELERYBEAT_SCHEDULE = {
-    'greet-every-5-seconds': {
-        'task': 'pizza_app.tasks.greet_new_orders',
-        'schedule': timedelta(seconds=5),
-        # 'args': (16, 16),
-    },
-}
