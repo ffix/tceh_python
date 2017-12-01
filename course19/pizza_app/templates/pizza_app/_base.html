@@ -13,20 +13,18 @@
 
 <body>
 
-    <p>{{ user }}</p>
-
-    {% if user.is_anonymous %}
-        <p>
-            <a href="{% url 'auth_app:register' %}">
-                Register
-            </a>
-        </p>
-    {% endif %}
 
   <main>
     {% block content %}
     {% endblock %}
   </main>
+
+<nav>
+    {% block nav %}<hr />
+    <span><a href="{% url 'index' %}">Back to main</a></span>
+    {% endblock %}
+</nav>
+
 </body>
 
 </html>

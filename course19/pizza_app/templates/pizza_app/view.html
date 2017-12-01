@@ -40,7 +40,7 @@
     <p>Delivered: {{ pizza.date_delivered|default_if_none:"Not yet" }}</p>
 
     {% if not pizza.delivered %}
-        <a href="{% url 'pizza:close' pizza.id %}">Mark delivered</a>
+        <a href="{% url 'pizza:close' pizza.id %}">Mark delivered</a><br>
     {% endif %}
 </div>
 

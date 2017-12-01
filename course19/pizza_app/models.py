@@ -35,12 +35,12 @@ class PizzaSize(models.Model):
     LARGE = ('XL', 'Large')
     MEDIUM = ('MD', 'Medium')
     SMALL = ('SM', 'Small')
-    __all = (LARGE, MEDIUM, SMALL)
+    __all = dict([LARGE, MEDIUM, SMALL])
 
-    size = models.CharField(max_length=2, choices=__all)
+    size = models.CharField(max_length=2, choices=__all.items())
 
     def __str__(self):
-        return str(self.size)
+        return str(self.__all[self.size])
 
 
 class PizzaOrderManager(Manager):
