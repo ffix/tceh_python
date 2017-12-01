@@ -11,7 +11,9 @@ app = Flask(__name__, template_folder='templates')
 @app.route('/')
 def index():
     report_data = [random.randint(0, 20) for _ in range(25)]
-    return render_template('report.txt', data=report_data)
+    return render_template('report.jinja2',
+                           data=report_data,
+                           another_data='{{ ANOTHER DATA }}')
 
 
 app.jinja_env.globals.update(some_var='value')

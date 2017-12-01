@@ -24,11 +24,15 @@ def find_pet_by_status(status):
 
     request = Request(full_url, headers={
         'Accept': 'application/json'
-        # 'Accept': 'application/xml'
+        #'Accept': 'application/xml'
     })
     response = urlopen(request)
     print(response.info())
-    print(response.read())
+    #print(response.read())
+    data = response.read()
+    import json
+    pets = json.loads(data)
+    print(pets)
     response.close()
 
 

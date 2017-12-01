@@ -33,6 +33,9 @@ def index():
             flash(str(form.errors))
 
     posts = Post.query.all()
+    user = User.query.filter(id = posts[0].user_id)
+    user = posts[0].user
+
     for post in posts:
         user_id = post.user_id
         user = User.query.filter_by(id=user_id).first()

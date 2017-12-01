@@ -19,6 +19,13 @@ class Example(object):
         pass
 
 
+class Inh(Example):
+    def nnn(self):
+        self._b = 5
+        self.__c = 6
+
+
+
 example = Example()
 print(example.a)
 print(example._b)

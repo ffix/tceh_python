@@ -43,6 +43,20 @@ def gen():
         yield 'value'
 
 
+def foo(*args, **kwargs):
+    """
+
+    :param args: send to function bar, see it signature
+    :param kwargs:
+    :return:
+    """
+
+
+def gen():
+    v = ''
+    for c in v:
+        yield c
+
 
 
 

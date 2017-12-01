@@ -2,7 +2,7 @@
 def read_file(filename):
     print('reading file with read_file()')
     content = None
-    f = open(filename)  # Unix-way - some_dir/file_name.txt, Windows-way - sime_folder\file_name.txt
+    f = open(filename)  # Unix-way - some_dir/file_name.txt, Windows-way - some_folder\file_name.txt
     try:
         content = f.read()
     finally:
@@ -23,13 +23,15 @@ def write_to_file(filename, content, mode='w'):
 
 
 if __name__ == '__main__':
+    print(way_better('/Users/ppetlinsky/workspace/tceh/python_course/1.txt'))
+    print(way_better('../1.txt'))
     # Reading:
-    print(read_file('toread.txt'))
-    print(way_better('toread.txt'))
+    #print(read_file('toread.txt'))
+    #print(way_better('toread.txt'))
 
     # Writing:
-    # write_to_file('new.txt', 'Some\ntext!')  # rewrites
-    # write_to_file('existing.txt', 'New line\n', mode='a')  # adds
+    #write_to_file('new.txt', 'Some\ntext!')  # rewrites
+    #write_to_file('existing.txt', 'New line\n', mode='a')  # adds
 
 
 

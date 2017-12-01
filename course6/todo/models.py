@@ -24,6 +24,9 @@ class BaseItem(object):
     def __repr__(self):
         return self.__class__
 
+    def _done_status_repr(self):
+        return '+' if self.done is True else '-'
+
     @classmethod
     def construct(cls):
         raise NotImplemented()
@@ -31,7 +34,9 @@ class BaseItem(object):
 
 class ToDoItem(BaseItem):
     def __str__(self):
-        return 'ToDo: {}'.format(
+        done_status = self._done_status_repr()
+        return '{} ToDo: {}'.format(
+            done_status,
             self.heading
         )
 
@@ -48,7 +53,8 @@ class ToBuyItem(BaseItem):
         self.price = price
 
     def __str__(self):
-        return 'ToBuy: {} for {}'.format(
+        return '{} ToBuy: {} for {}'.format(
+            '+' if self.done else '-',
             self.heading,
             self.price,
         )
@@ -60,3 +66,22 @@ class ToBuyItem(BaseItem):
         price = input_function('Input price: ')
         return ToBuyItem(heading, price)
 
+
+class ToReadItem(BaseItem):
+    def __init__(self, heading, url):
+        super(ToReadItem, self).__init__(heading)
+        self.url = url
+
+    def __str__(self):
+        return '{} ToRead: {} in {}'.format(
+            '+' if self.done else '-',
+            self.heading,
+            self.url,
+        )
+
+    @classmethod
+    def construct(cls):
+        input_function = get_input_function()
+        heading = input_function('Input heading: ')
+        url = input_function('Input url: ')
+        return ToReadItem(heading, url)

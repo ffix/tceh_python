@@ -28,7 +28,7 @@ def my_function(var1, var2, var3):
     print("No way I'm using this: {}, {}, {}".format(var1, var2, var3))
 
 # my_function now is redefined to accept 3 arguments:
-new_call = my_function(1, 2, 3)
+new_call = my_function((1,2,3,4), input('var2'), input('var3'))
 print(new_call)
 
 

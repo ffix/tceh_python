@@ -7,5 +7,5 @@
     }
 
     scoped();
-    // globalFunction();
+    globalFunction();
 }) (document, window);

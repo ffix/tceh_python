@@ -17,7 +17,7 @@ def for_example(iterable=None):
         iterable = range(1, 11)
 
     t = Template("""
-My favorite numbers: {% for n in array %}
+My favorite numbers:{% for n in array %} 
 {{ n }}{% endfor %}
 """
     )

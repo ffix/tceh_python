@@ -17,6 +17,7 @@ class MyIterator:
     def __next__(self):
         if self.__current == len(self.lst):
             raise StopIteration()
+
         result = self.lst[self.__current]
         self.__current += 1
         return result

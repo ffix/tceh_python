@@ -490,3 +490,14 @@ list(range(2, 10))
 list(range(10))
 list(range(0, 10, 3))
 list(range(0, 10, 2))
+if True:
+    print(x)
+    
+if not False:
+    print(x)
+    
+k, v = 1
+'' == 0
+''.tolower()
+''.lower()
+'FDGDFGDFG'.lower()

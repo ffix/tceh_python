@@ -20,6 +20,16 @@ class BaseCommand(object):
     def perform(self, objects, *args, **kwargs):
         raise NotImplemented()
 
+    @staticmethod
+    def user_input_secure_wrap(func, *args, **kwargs):
+        while True:
+            try:
+                return func(*args, **kwargs)
+            except ValueError:
+                print('Bad input, try again.')
+            except IndexError:
+                print('Wrong index, try again.')
+
 
 class ListCommand(BaseCommand):
     @staticmethod
@@ -32,6 +42,7 @@ class ListCommand(BaseCommand):
             return
 
         for index, obj in enumerate(objects):
+            # print('{}: {} {}'.format(index, '+' if obj.done is True else '-', str(obj)))
             print('{}: {}'.format(index, str(obj)))
 
 
@@ -55,12 +66,14 @@ class NewCommand(BaseCommand):
         # )
         # return dict(classes)
 
-        from models import ToDoItem, ToBuyItem
+        from models import ToDoItem, ToBuyItem, ToReadItem
 
         return {
             'ToDoItem': ToDoItem,
             'ToBuyItem': ToBuyItem,
+            'ToReadItem': ToReadItem,
         }
+
 
     def perform(self, objects, *args, **kwargs):
         classes = self._load_item_classes()
@@ -73,16 +86,12 @@ class NewCommand(BaseCommand):
         selection = None
         selected_key = None
 
-        while True:
-            try:
-                selection = int(input_function('Input number: '))
-                selected_key = list(classes.keys())[selection]
+        def give_me_num():
+            selection = int(input_function('Input number: '))
+            selected_key = list(classes.keys())[selection]
+            return selected_key
 
-                break
-            except ValueError:
-                print('Bad input, try again.')
-            except IndexError:
-                print('Wrong index, try again.')
+        selected_key = self.user_input_secure_wrap(give_me_num)
 
         selected_class = classes[selected_key]
         print('Selected: {}'.format(selected_class.__name__))
@@ -103,3 +112,48 @@ class ExitCommand(BaseCommand):
 
     def perform(self, objects, *args, **kwargs):
         raise UserExitException('See you next time!')
+
+
+class DoneCommand(BaseCommand):
+
+    to_state = True
+
+    @staticmethod
+    def label():
+        return 'done'
+
+    def change_state(self, input_function, objects):
+        selection = int(input_function('Input number: '))
+        objects[selection].done = self.to_state
+
+    def perform(self, objects, *args, **kwargs):
+
+        ListCommand().perform(objects)
+
+        input_function = get_input_function()
+        self.user_input_secure_wrap(self.change_state, input_function, objects)
+
+
+class UndoneCommand(DoneCommand):
+
+    to_state = True
+
+    @staticmethod
+    def label():
+        return 'undone'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

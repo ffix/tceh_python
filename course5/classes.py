@@ -31,7 +31,24 @@ print(r.floor, r1.floor)
 
 # Classes can have functions inside: it's called a method
 
+class Car:
+    speed = 0
+
+    def accelerate(self):
+        self.speed = self.speed + 3
+
+    def accelerate_to(self, speed_delta):
+        self.speed = self.speed + speed_delta
+
+    def stop(self):
+        self.speed = self.speed - 3
+
+def foo():
+    pass
+
+
 class Door:
+
     def open(self):  # note that `self` is the object itself!
         print('self is', self)
         print('Door is opened!')

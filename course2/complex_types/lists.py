@@ -4,6 +4,14 @@
 # lists:
 not_a_list = (1, 2, )
 list1 = [1, 2]
+
+long_list = [
+    1,
+    2,
+    3,
+    4,
+
+]
 list2 = list(not_a_list)  # show __builtin__
 # get the tuple back by: `new_tuple = tuple(list2)`
 
@@ -85,11 +93,10 @@ print(v, s)
 
 
 # multi-dimensional lists:
-multi = [
-    [0, 1, 2, 3],
-    [4, 5, 6, 7],
-    [8, 9, 10, 11]
-]  # matrix 4*3
+multi = [[0, 1, 2, 3],
+         [4, 5, 6, 7],
+         [8, 9, 10, 11],
+         ]  # matrix 4*3
 
 for row in multi:
     print(row)

@@ -3,13 +3,22 @@
 
 # Constructor is called when new instance is created
 
-class TestClass:
-    def __init__(self):
+class Car:
+    speed = 0
+
+    def __init__(self, color, transmission='Auto'):
         print('Constructor is called!')
         print('Self is the object itself!', self)
+        self.color = color
+        self.transmission = transmission
+
+        # HERE ENGINE AND TRANSMISSION COMPAT CHECK
+
+
 
 
 t = TestClass()
+
 t1 = TestClass()
 
 

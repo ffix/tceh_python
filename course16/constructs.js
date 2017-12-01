@@ -1,8 +1,12 @@
+'use strict';
+
+var x = 1 === 1 ? 'true' : 'false';
+
 var flag = true;
 
 if (!flag) {
     console.log('if');
-} else if (flag && 1 < 2) { // || - or, && - and.
+} else if ((flag && 1 < 2)  || (5 < 3)) { // || - or, && - and.
     console.log('elseif');
 } else {
     // do nothing.
@@ -26,17 +30,29 @@ switch (value) {
         break;
 }
 
-
-for (var i = 0; i < 10; i++) { // ++i, i++
-    console.log(i);
+var i = 42;
+console.log(i++); // shows 42
+console.log(i); // shows 43
+i = 42;
+console.log(++i); // shows 43
+console.log(i); // shows 43
+for (var j = 0; j < 10; j++) {
+    for (var i = 0; i < 10; i++) { // ++i, i++
+        console.log(i);
+        break;
+    }
 }
 
 
-var iterable = [1, 2, 3, 4, 5];
+var iterable = ['a', 'b', 1, 2, 3, 4, 5];
 for (var item in iterable) {
-    console.log(iterable[item]);
+    console.log(item, iterable[item]);
 }
 
+var iterable = [null, NaN,1, 2, 3, 4, 5];
+for (var item of iterable) {   // Not supported in many browsers
+    console.log(item);
+}
 
 // var i = 0;
 var s = 0;

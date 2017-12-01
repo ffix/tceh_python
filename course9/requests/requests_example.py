@@ -13,8 +13,8 @@ def get_habrahabr():
 def find_pet_by_status(status):
     params = {'status': status}
     headers = {
-        'Accept': 'application/xml'
-        # 'Accept': 'application/json'
+        #'Accept': 'application/xml'
+        'Accept': 'application/json'
     }
     url = 'http://petstore.swagger.io/v2/pet/findByStatus'
     r = requests.get(url, params=params, headers=headers)

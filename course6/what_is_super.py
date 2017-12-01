@@ -22,8 +22,9 @@ class ExtendedCalc(Calc):
         self.k = k
 
     def count(self):
+        a = self.k + 1
         previous = super().count()
-
+        #  previous = self.value * 8 + 9
         return -1 * self.k * previous
 
 e = ExtendedCalc(8, k=1.2)

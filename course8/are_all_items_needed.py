@@ -18,7 +18,7 @@ print(0, sys.getsizeof([]))
 print(1, sys.getsizeof([1]))
 print(2, sys.getsizeof([1, 2]))
 print(3, sys.getsizeof([1, 2, 3]))
-print(4, sys.getsizeof([1, 2, 3, 'abc']))
+print(3, sys.getsizeof([1, 2, 3, 'abc']))
 
 x = list(range(0, 1000000))
 print(len(x), sys.getsizeof(x))

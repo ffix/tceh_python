@@ -38,7 +38,16 @@ s.walk()
 s.say_hello()
 
 
+
 class Child(Person):
+
+    def __init__(self, name, age):
+        if age > 18:
+            raise ValueError('ЭТО БЫЛ НЕ НЕСКАФЕ!')
+
+        self.name = name
+        self.age = age
+
     def walk(self):
         raise ValueError('Can not walk')
 
@@ -80,4 +89,64 @@ c.calc_and_print()
 
 c1 = CalcExtraValue(4)
 c.calc_and_print()
+
+
+
+
+
+class Person(object):
+    biological_name = 'homo sapiens'
+
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def walk(self):
+        if self.age > 3:
+            print('Walking...')
+        else:
+            raise ValueError('Can not walk')
+
+    def say_hello(self):
+        if self.age < 3:
+            raise ValueError('Can not talk')
+        elif self.age > 23:
+            print('I am a person', self.name, self.age)
+        else:
+            print('I am a student', self.name, self.age)
+
+    def crawl(self):
+        if self.age < 3:
+            print('Haha!')
+        else:
+            raise ValueError('Can not crawl')
+
+
+
+
+
+class A:
+    x = 5
+    def f(self):
+        pass
+
+
+class B:
+    def f(self):
+        pass
+
+class C:
+    def f(self):
+        pass
+
+class D(A, B, C):
+    pass
+
+
+
+
+def gen_person(age, name):
+
+
+
 

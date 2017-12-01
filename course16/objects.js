@@ -4,12 +4,14 @@ var MyClass = function (title) {
     this.title = title;
     var privateValue = 'secret';
 
-    this.tellTitle = function () {
+    this.tellTitle = function (value) {
+        console.log("tellTitle", value);
         console.log(this.title);
         console.log(this);
     };
 
     function privateFunction() {
+        console.log("privateFunction");
         console.log(privateValue);
         console.log('This is:', this);
     }
@@ -17,10 +19,12 @@ var MyClass = function (title) {
     privateFunction();
 
     this.runPrivate = function () {
+        console.log("runPrivate");
         privateFunction();
     };
 
     this.runPrivateWithCall = function () {
+        console.log("runPrivateWithCall");
         privateFunction.call(this);
         privateFunction.apply(this, []);
     };
@@ -34,6 +38,7 @@ inst.runPrivateWithCall();
 
 console.log('compare', typeof MyClass.prototype === typeof {});
 
+// mutable class prototypes
 // MyClass.prototype = {};
 MyClass.prototype.newFunction = function () {
     console.log('Here I am!');

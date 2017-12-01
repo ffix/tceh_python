@@ -36,9 +36,9 @@ except ZeroDivisionError:
 
 try:
     print(1 / 0)
-except ZeroDivisionError as e:
+except ZeroDivisionError as some_var:
     print('Exception! Stop it!')
-    print(e)
+    print(some_var)
 
 
 
@@ -113,6 +113,13 @@ try:
     raise ValueError()
 finally:
     print('Finally!')
+
+
+
+di = {'Please, input what is the name of the first President of Russia?': ('Boris','Elcin','Boris Elcin'),
+      'Please, input how many 5 * 5?': ('25','twenty five','TWENTY FIVE'),
+      'Please, input what is the main street in Moscow?':('Tverskaia','Tverskaya','TVERSKAIA'),
+      }
 
 
 

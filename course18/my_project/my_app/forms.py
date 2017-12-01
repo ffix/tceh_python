@@ -7,6 +7,8 @@ class MyForm(forms.Form):
     message = forms.CharField()
 
     def clean_name(self):
+        """auto magic of form validation
+        """
         name = self.cleaned_data['name']
         if len(name) <= 3:
             raise ValidationError('Name is too short')

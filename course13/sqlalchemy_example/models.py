@@ -29,7 +29,7 @@ class Post(db.Model):
     content = db.Column(db.String(3000), nullable=False)
 
     date_created = db.Column(db.Date, default=date.today)
-    is_visible = db.Column(db.Boolean, default=True)
+    is_visible = db.Column(db.Boolean, default=True, nullable=False)
 
     def __str__(self):
-        return '<Post %r>' % self.title
+        return '<Post %r, user_id %s>'.format(self.title, self.user_id)

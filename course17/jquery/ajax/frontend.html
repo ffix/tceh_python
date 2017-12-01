@@ -26,8 +26,8 @@
 
     (function (window, document, $) {
         function sendRequest(param) {
-            var results = $('.results', '.requests');
-            // var results = $('.requests').find('.results');
+            //var results = $('.results', '.requests');
+            var results = $('.requests').find('.results');
 
             var request = $.ajax({
                 url: 'http://127.0.0.1:5000/ajax/' + param,

@@ -62,7 +62,9 @@ for item in tuple1:  # tuple is iterable
     # we will remove all the 'strings' from tuple1
     # if not isinstance(item, (str, unicode)):  # or `basestring`
     if not isinstance(item, str):
+    # if isinstance(item, str):
         new_tuple += (item, )
+        new_tuple = new_tuple + item
 print(new_tuple)
 
 

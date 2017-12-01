@@ -8,10 +8,13 @@ from my_app.forms import MyForm
 
 def index(request):
     if request.method == 'GET':
-        return render(request, 'my_app/index.html')
+        return render(request,
+                      'my_app/index.html',
+                      {'name': 'Ivan'})
 
 
 class MyView(View):
+
     def get(self, request):
         form = MyForm()
         c = {'form': form}

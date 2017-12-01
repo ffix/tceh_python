@@ -6,7 +6,7 @@ p = lambda: print('Hey')
 p()
 
 ten = lambda x: 10
-print(ten())
+print(ten(9))
 
 # With positional elements
 n = lambda x, y: x + y

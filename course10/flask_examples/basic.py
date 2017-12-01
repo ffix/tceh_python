@@ -1,11 +1,11 @@
 from flask import Flask
-
+from werkzeug.routing import BaseConverter
 app = Flask(__name__)
 
 
-@app.route('/')
-def home():
-    return 'hello world!'
+@app.route('/<path:user_name>')
+def home(user_name):
+    return 'hello user! {}'.format(user_name)
 
 
 

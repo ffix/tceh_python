@@ -18,7 +18,7 @@ print(list(m1))
 
 # filter
 
-print(list(filter(lambda v: v > 0, [-1, -5, -9, 20, 3, 0])))
+print(list(map(lambda x: x * 3, filter(lambda v: v > 0, [-1, -5, -9, 20, 3, 0]))))
 
 
 # reduce
