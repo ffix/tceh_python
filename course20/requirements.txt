@@ -1,0 +1,6 @@
+Django
+django-debug-toolbar
+pytz
+sqlparse
+wheel
+django-queryinspect
