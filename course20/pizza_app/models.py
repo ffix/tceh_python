@@ -50,6 +50,13 @@ class PizzaOrderManager(Manager):
         )
 
 
+class PizzaOrderUndeliveredManager(Manager):
+    def get_queryset(self, **kwargs):
+        return super().get_queryset().filter(
+            delivered=False,
+        )
+
+
 class PizzaOrder(models.Model):
     # Linking:
     kind = models.ForeignKey('PizzaMenuItem', related_name='pizzas')
@@ -69,6 +76,9 @@ class PizzaOrder(models.Model):
 
     objects = Manager()
     delivered_manager = PizzaOrderManager()
+    undelivered_manager = PizzaOrderUndeliveredManager()
+
+
 
     def mark_delivered(self, commit=True):
         self.delivered = True

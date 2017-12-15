@@ -167,14 +167,7 @@ REDIS_BACKEND_URL = 'redis://{host}:{port}/{db}'.format(
 #     db=REDIS_BACKEND['DB'],
 # )
 
-CELERY_RESULT_BACKEND = 'djcelery.backends.database.DatabaseBackend'
 
-
-CELERY_TASK_RESULT_EXPIRES = 18000  # 5 hours
-
-CELERY_ACCEPT_CONTENT = ['json']
-CELERY_TASK_SERIALIZER = 'json'
-CELERY_RESULT_SERIALIZER = 'json'
 
 BROKER_URL = REDIS_BACKEND_URL
 
@@ -205,28 +198,28 @@ CELERYBEAT_SCHEDULER = "djcelery.schedulers.DatabaseScheduler"
 # }
 
 # https://github.com/dobarkod/django-queryinspect
-# QUERY_INSPECT_ENABLED = True
+QUERY_INSPECT_ENABLED = True
 #
-# LOGGING = {
-#     'version': 1,
-#     'filters': {
-#         'require_debug_true': {
-#             '()': 'django.utils.log.RequireDebugTrue',
-#         }
-#     },
-#     'handlers': {
-#         'console': {
-#             'level': 'DEBUG',
-#             'filters': ['require_debug_true'],
-#             'class': 'logging.StreamHandler',
-#         }
-#     },
-#     'loggers': {
-#         'qinspect': {
-#             'handlers': ['console'],
-#             'level': 'DEBUG',
-#             'propagate': True,
-#         },
-#     }
-# }
+LOGGING = {
+    'version': 1,
+    'filters': {
+        'require_debug_true': {
+            '()': 'django.utils.log.RequireDebugTrue',
+        }
+    },
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'filters': ['require_debug_true'],
+            'class': 'logging.StreamHandler',
+        }
+    },
+    'loggers': {
+        'qinspect': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+    }
+}
 

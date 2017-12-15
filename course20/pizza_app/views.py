@@ -53,11 +53,17 @@ def view(request, pizza_order_id):
     if request.method == 'GET':
         # pizza = get_object_or_404(PizzaOrder, id=pizza_order_id)
 
-        pizza = PizzaOrder.objects.filter(id=pizza_order_id).first()
-        #  pizza = PizzaOrder.objects.select_related().filter(id=pizza_order_id).first()
-        #  pizza = PizzaOrder.objects.select_related('kind').filter(id=pizza_order_id).first()
-        #  pizza = PizzaOrder.objects.select_related().prefetch_related().filter(id=pizza_order_id).first()
-        #  pizza = PizzaOrder.objects.select_related().prefetch_related('extras', 'exclude').filter(id=pizza_order_id).first()
+        #pizza = PizzaOrder.objects.filter(id=pizza_order_id).first()
+        #pizza = PizzaOrder.objects.select_related().filter(id=pizza_order_id).first()
+        pizza = PizzaOrder.objects.select_related('kind').filter(id=pizza_order_id).first()
+        # pizza = PizzaOrder.objects.select_related()\
+        #     .prefetch_related()\
+        #     .filter(id=pizza_order_id)\
+        #     .first()
+        # pizza = PizzaOrder.objects\
+        #     .select_related()\
+        #     .prefetch_related('extra', 'exclude')\
+        #     .filter(id=pizza_order_id).first()
 
         if not pizza:
             raise Http404

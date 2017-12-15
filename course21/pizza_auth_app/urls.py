@@ -1,6 +1,6 @@
 from django.urls import path
 
-from django.contrib.auth.views import login, logout_then_login
+from django.contrib.auth.views import logout_then_login, LoginView
 from django.views.generic import CreateView
 
 from pizza_auth_app.forms import CustomCreationForm
@@ -8,10 +8,9 @@ from pizza_auth_app.forms import CustomCreationForm
 app_name = 'pizza_auth_app'
 
 urlpatterns = [
-    path('login/', login, {
-        'template_name': 'auth_app/login.html',
-        # 'authentication_form': MyCustomForm,
-    }, name='login'),
+    path('login/', LoginView.as_view(
+        template_name='auth_app/login.html'
+    ), name='login'),
 
     path('logout/', logout_then_login, name='logout'),
 
