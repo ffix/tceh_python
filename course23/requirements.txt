@@ -16,3 +16,4 @@ pytest-mock
 pytest-colordots
 pytest-cov
 pytest-django
+pytest-pep8
