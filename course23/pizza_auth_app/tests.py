@@ -21,17 +21,23 @@ class TestLoginView(TestCase):
 
     def test_incorrect_login(self):
         with self.assertNumQueries(2):
-            url = reverse('auth_app:login')
-            response = self.client.post(url, {
-                'username': self.user.username,
-                'password': 'wrong-password',
-            }, follow=True)
+            with self.assertTemplateUsed(template_name='auth_app/login.html'):
+                url = reverse('auth_app:login')
+                response = self.client.post(url, {
+                    'username': self.user.username,
+                    'password': 'wrong-password',
+                }, follow=True)
 
+        self.assertTemplateUsed(response, template_name='pizza_app/_base.html')
         self.assertEqual(response.status_code, 200)
         self.assertIn(
             'Please enter a correct username and password',
             str(response.content)
         )
+        self.assertContains(response, 'Please enter a correct username and password')
+        self.assertFormError(response, form='form',
+                             field=None,
+                             errors='Please enter a correct username and password. Note that both fields may be case-sensitive.')
         self.assertEqual(Session.objects.all().count(), 0)
 
 # TODO: add tests for correct login
